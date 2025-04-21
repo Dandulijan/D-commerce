@@ -10,7 +10,7 @@ export interface user {
   avatarUrl: string;
 }
 
-export const USERS = [
+export const USERS: user[] = [
   {
     id: 1,
     name: 'Alice Johnson',
