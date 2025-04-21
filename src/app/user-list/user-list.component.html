@@ -1,0 +1,30 @@
+<!-- users.component.html -->
+<div>
+  <h1 class="text-2xl font-bold mb-4">Users</h1>
+  <table class="min-w-full bg-white rounded shadow">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="px-4 py-2 text-left">Name</th>
+        <th class="px-4 py-2 text-left">Email</th>
+        <th class="px-4 py-2 text-left">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="border-t">
+        <td class="px-4 py-2">{{ user.name }}</td>
+        <td class="px-4 py-2">{{ user.email }}</td>
+        <td class="px-4 py-2">
+          <span
+            [ngClass]="{
+              'text-green-600': user.status === 'active',
+              'text-yellow-600': user.status === 'inactive',
+              'text-red-600': user.status === 'banned'
+            }"
+          >
+            {{ user.status }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

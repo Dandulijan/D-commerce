@@ -10,10 +10,10 @@ export interface Product {
   imageUrl: string;
   createdAt: string;
   updatedAt: string;
-  tags: [];
+  tags: string[];
 }
 
-export const PRODUCTS = [
+export const PRODUCTS: Product[] = [
   {
     id: 1,
     name: 'Wireless Mouse',

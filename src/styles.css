@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import "https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata";
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Literata", serif;
+  background-color: #f8f8f8;
+  color: #333;
+} */

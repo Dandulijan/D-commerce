@@ -1,3 +1,15 @@
-<app-dashboard></app-dashboard>
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+<div class="flex h-screen">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main content area -->
+  <div class="flex flex-col flex-1">
+    <!-- Header -->
+    <app-header></app-header>
+
+    <!-- Router outlet -->
+    <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
