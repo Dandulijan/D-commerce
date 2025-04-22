@@ -1,0 +1,17 @@
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  min-width: 120px;
+}
+
+.btn-primary {
+  background-color: #1abc9c;
+  color: white;
+
+  &:hover {
+    background-color: #16a085;
+  }
+}

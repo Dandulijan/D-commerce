@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Product, PRODUCTS } from '../../Data/Product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -25,8 +25,8 @@ export class ProductDetailsComponent {
   //   });
   // }
 
-  //fetching based on route
   ngOnInit(): void {
+    // this.selectedProduct.set(this.product);
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.product = this.productService.getProductById(id);
   }

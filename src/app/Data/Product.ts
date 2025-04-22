@@ -8,8 +8,8 @@ export interface Product {
   status: 'available' | 'out-of-stock' | 'archived';
   rating: number;
   imageUrl: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
   tags: string[];
 }
 

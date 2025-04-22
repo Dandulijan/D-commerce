@@ -33,7 +33,7 @@
         <td class="px-4 py-2">{{ product.price | currency }}</td>
         <td class="px-4 py-2">
           <button
-            (click)="UpdateProduct(product)"
+            (click)="setSelectedProduct(product)"
             class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-lg shadow-sm transition"
           >
             Edit
@@ -55,9 +55,31 @@
       }
     </tbody>
   </table>
+  @if(editMode) {
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
+      <button
+        (click)="this.editMode = false"
+        class="absolute top-2 right-2 text-stone-500 hover:text-stone-800"
+      >
+        X
+      </button>
+
+      <app-product-form
+        *ngIf="editMode"
+        [product]="selectedProduct"
+        (updateProduct)="handleFormSubmit($event)"
+      ></app-product-form>
+    </div>
+  </div>
+  }
+  <!-- 
   <app-product-form
-    *ngIf="!cancelEdit"
+    *ngIf="editMode"
     [product]="selectedProduct"
-    (formSubmit)="handleFormSubmit($event)"
-  ></app-product-form>
+    (updateProduct)="handleFormSubmit($event)"
+    (closeForm)="this.editMode = false"
+  >
+    ></app-product-form
+  > -->
 </div>
