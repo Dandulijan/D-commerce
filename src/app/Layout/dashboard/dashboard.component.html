@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<ngx-charts-bar-vertical
+  [view]="[700, 400]"
+  [results]="chartData2()"
+  [scheme]="colorScheme"
+  [gradient]="false"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  xAxisLabel="Product"
+  yAxisLabel="Sales"
+>
+</ngx-charts-bar-vertical>
+<ngx-charts-bar-vertical
+  [results]="chartData()"
+  [view]="[700, 300]"
+  [gradient]="false"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxisLabel]="'Products'"
+  [yAxisLabel]="'Sales'"
+  [animations]="true"
+>
+</ngx-charts-bar-vertical>
+<ngx-charts-line-chart
+  [results]="[lineChartData()]"
+  [view]="[700, 400]"
+  [scheme]="colorScheme"
+  [xAxis]="true"
+  [yAxis]="true"
+  [legend]="false"
+  [autoScale]="true"
+>
+</ngx-charts-line-chart>

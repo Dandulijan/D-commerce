@@ -77,51 +77,88 @@
   </button>
 </form> -->
 
-<form [formGroup]="productForm" (ngSubmit)="submitForm()" class="space-y-4">
-  <input formControlName="name" placeholder="Product Name" class="input" />
-  <textarea
-    formControlName="description"
-    placeholder="Description"
-    class="input"
-  ></textarea>
-  <input
-    formControlName="price"
-    type="number"
-    placeholder="Price"
-    class="input"
-  />
-  <input formControlName="category" placeholder="Category" class="input" />
-  <input
-    formControlName="stock"
-    type="number"
-    placeholder="Stock"
-    class="input"
-  />
-  <select formControlName="status" class="input">
-    <option value="available">Available</option>
-    <option value="out-of-stock">Out of Stock</option>
-    <option value="archived">Archived</option>
-  </select>
-  <input
-    formControlName="rating"
-    type="number"
-    placeholder="Rating"
-    class="input"
-  />
-  <input formControlName="imageUrl" placeholder="Image URL" class="input" />
-  <button type="submit" class="btn btn-primary">Update Product</button>
-</form>
-<!-- <div class="space-y-4 text-left">
-  <div>
-    <label class="block text-sm font-medium mb-1">Name</label>
-    <input id="swal-name" type="text" class="w-full border rounded-lg px-3 py-2" value="${product.name}" />
+<body>
+  <div class="form-container">
+    <h2>Edit Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="submitForm()" class="space-y-4">
+      <label for="product-name">Product Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        id="product-name"
+        name="product-name"
+        placeholder="Enter product name"
+        required
+        class="input"
+      />
+      <label for="product-description">Product Description</label>
+      <textarea
+        formControlName="description"
+        id="product-description"
+        name="product-description"
+        placeholder="Enter product description"
+        rows="2"
+        required
+        class="input"
+      ></textarea>
+      <label for="product-price">Price</label>
+      <input
+        formControlName="price"
+        type="number"
+        id="product-price"
+        name="product-price"
+        placeholder="Enter price"
+        required
+        class="input"
+      />
+      <input formControlName="category" placeholder="Category" class="input" />
+      <input
+        formControlName="stock"
+        type="number"
+        placeholder="Stock"
+        class="input"
+      />
+      <label for="product-status">Product status</label>
+      <select formControlName="status" class="input">
+        <option value="available">Available</option>
+        <option value="out-of-stock">Out of Stock</option>
+        <option value="archived">Archived</option>
+      </select>
+      <label for="product-rating">Product rating</label>
+      <input
+        formControlName="rating"
+        type="number"
+        placeholder="Rating"
+        class="input"
+      />
+      <label for="product-image">Product Image</label>
+      <input
+        formControlName="imageUrl"
+        placeholder="Image URL"
+        class="file-input"
+        type="file"
+        id="product-image"
+        name="product-image"
+        accept="image/*"
+      />
+      <label for="product-stock">Stock Quantity</label>
+      <input
+        formControlName="stock"
+        type="number"
+        id="product-stock"
+        name="product-stock"
+        placeholder="Enter stock quantity"
+        required
+      />
+      <!-- <button type="submit" class="btn btn-primary">Update Product</button> -->
+      <button type="submit" class="btn">Save Changes</button>
+      <!-- <button
+        type="button"
+        class="btn cancel-btn"
+        onclick="window.location.href='/product-list';"
+      >
+        Cancel
+      </button> -->
+    </form>
   </div>
-  <div>
-    <label class="block text-sm font-medium mb-1">Price</label>
-    <input id="swal-price" type="number" class="w-full border rounded-lg px-3 py-2" value="${product.price}" />
-  </div>
-  <div>
-    <label class="block text-sm font-medium mb-1">Category</label>
-    <input id="swal-category" type="text" class="w-full border rounded-lg px-3 py-2" value="${product.category}" />
-  </div>
-</div> -->
+</body>

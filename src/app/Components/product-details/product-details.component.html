@@ -1,5 +1,6 @@
 @if(product){
-<div class="container mt-4" *ngIf="product">
+<!-- <div class="container mt-4" *ngIf="product">
+
   <div class="card">
     <img
       [src]="product?.imageUrl"
@@ -17,7 +18,49 @@
       </p>
     </div>
   </div>
-</div>
+</div> -->
+
+<body>
+  <div class="details-container">
+    <div class="details-header">
+      <h2>Product Details</h2>
+    </div>
+
+    <div class="details-body">
+      <img [src]="product?.imageUrl" alt="Product Image" />
+
+      <div class="detail-row">
+        <div class="detail-label">Product Name:</div>
+        <div class="detail-value">{{ product?.name }}</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Description:</div>
+        <div class="detail-value">
+          {{ product?.description }}
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Price:</div>
+        <div class="detail-value">{{ product?.price | currency }}</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Stock:</div>
+        <div class="detail-value">{{ product.stock }}</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-label">Category:</div>
+        <div class="detail-value">{{ product.category }}</div>
+      </div>
+      <a routerLink="/products">
+        <button class="back-btn">Back to list</button>
+      </a>
+    </div>
+  </div>
+</body>
 }@else{
 <!-- <div *ngIf="!product" class="container mt-4"> -->
 <div class="container mt-4">
