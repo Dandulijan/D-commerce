@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { USERS } from '../Data/Users';
+import { USERS } from '../../Data/Users';
 
 @Component({
   selector: 'app-header',

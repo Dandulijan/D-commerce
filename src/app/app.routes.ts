@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { ProfileComponent } from '../app/Components/profile/profile.component';
+import { ProductListComponent } from '../app/Components/product-list/product-list.component';
+import { ProductDetailsComponent } from '../app/Components/product-details/product-details.component';
+import { DashboardComponent } from './Layout/dashboard/dashboard.component';
+import { UserListComponent } from '../app/Components/user-list/user-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

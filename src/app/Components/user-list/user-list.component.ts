@@ -1,8 +1,8 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { USERS } from '../Data/Users';
+import { USERS } from '../../Data/Users';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',

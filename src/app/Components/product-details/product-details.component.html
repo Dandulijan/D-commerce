@@ -1,3 +1,4 @@
+@if(product){
 <div class="container mt-4" *ngIf="product">
   <div class="card">
     <img
@@ -9,12 +10,17 @@
       <h5 class="card-title">{{ product?.name }}</h5>
       <p class="card-text">{{ product?.description }}</p>
       <p class="card-text">
-        <small class="text-muted">{{ product?.price }}</small>
+        <small class="text-muted">{{ product?.price | currency }}</small>
+        <a routerLink="/products">
+          <button class="btn btn-secondary">Back</button>
+        </a>
       </p>
-      <button class="btn btn-primary">Add to Cart</button>
     </div>
   </div>
 </div>
-<div *ngIf="!product" class="container mt-4">
+}@else{
+<!-- <div *ngIf="!product" class="container mt-4"> -->
+<div class="container mt-4">
   <p class="text-center">Product not found!</p>
 </div>
+}

@@ -1,0 +1,43 @@
+<!-- user-form.component.html -->
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-4 p-4">
+  <input
+    formControlName="name"
+    placeholder="Name"
+    class="border p-2 w-full rounded"
+  />
+  <input
+    formControlName="email"
+    placeholder="Email"
+    class="border p-2 w-full rounded"
+  />
+
+  <select formControlName="role" class="border p-2 w-full rounded">
+    <option value="admin">Admin</option>
+    <option value="customer">Customer</option>
+    <option value="manager">Manager</option>
+  </select>
+
+  <select formControlName="status" class="border p-2 w-full rounded">
+    <option value="active">Active</option>
+    <option value="inactive">Inactive</option>
+    <option value="banned">Banned</option>
+  </select>
+
+  <input
+    formControlName="avatarUrl"
+    placeholder="Avatar URL"
+    class="border p-2 w-full rounded"
+  />
+
+  <label class="flex items-center space-x-2">
+    <input type="checkbox" formControlName="isEmailVerified" />
+    <span>Email Verified</span>
+  </label>
+
+  <button
+    type="submit"
+    class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+  >
+    Add User
+  </button>
+</form>
