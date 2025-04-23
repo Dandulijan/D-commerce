@@ -8,7 +8,6 @@ export class ProductService {
   products = PRODUCTS;
   products$ = signal<Product[]>(PRODUCTS);
   selectedProduct = signal<Product | undefined>(undefined);
-
   getProducts(): Product[] {
     return this.products$();
   }
@@ -17,17 +16,15 @@ export class ProductService {
     return this.products$().find((product) => product.id === id);
   }
 
-  // addProduct(product: Product): void {
-  //   this.products.push(product);
-  // }
+  addProduct(product: Product): void {
+    this.products$().push(product);
+  }
   deleteProduct(id: number) {
     this.products$.update((products) => {
       const updatedProducts = products.filter((product) => product.id !== id);
       return updatedProducts;
     });
-    //this.products = this.products.filter((product) => product.id !== id);
   }
-  // updateProduct(updatedProduct: Product): void {}
 
   updateProduct(updated: Product) {
     console.log('Updated service product:', updated);
@@ -54,15 +51,22 @@ export class ProductService {
     //   return products; // return original if not found
     // });
     this.products$.update((products) => {
-      return products.map((item) =>
-        item.id === updated.id
-          ? updated.stock === 0
-            ? { ...updated, status: 'out-of-stock' }
-            : updated.status === 'out-of-stock'
-            ? { ...updated, stock: 0 }
-            : updated
-          : item
-      );
+      return products.map((item) => {
+        if (item.id !== updated.id) return item;
+
+        const isOutOfStock = updated.stock === 0;
+        const wasOutOfStock = updated.status === 'out-of-stock';
+
+        if (isOutOfStock) {
+          return { ...updated, status: 'out-of-stock' };
+        }
+
+        if (wasOutOfStock) {
+          return { ...updated, stock: 0 };
+        }
+
+        return updated;
+      });
     });
   }
 }

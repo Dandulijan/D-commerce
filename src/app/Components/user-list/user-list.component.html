@@ -4,13 +4,23 @@
   <table class="min-w-full bg-white rounded shadow">
     <thead class="table-light">
       <tr class="bg-gray-200">
+        <th class="px-4 py-2 text-left">Avatar</th>
         <th class="px-4 py-2 text-left">Name</th>
         <th class="px-4 py-2 text-left">Email</th>
         <th class="px-4 py-2 text-left">Status</th>
+        <th class="px-4 py-2 text-left">Role</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users" class="border-t">
+        <td class="px-4 py-2">
+          <img
+            [src]="user.avatarUrl"
+            [alt]="user.name"
+            style="width: 50px; height: auto; object-fit: contain"
+          />
+        </td>
+
         <td class="px-4 py-2">{{ user.name }}</td>
         <td class="px-4 py-2">{{ user.email }}</td>
         <td class="px-4 py-2">
@@ -24,6 +34,7 @@
             {{ user.status }}
           </span>
         </td>
+        <td class="px-4 py-2">{{ user.role }}</td>
       </tr>
     </tbody>
   </table>

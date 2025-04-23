@@ -64,6 +64,7 @@ import Swal from 'sweetalert2';
 export class ProductFormComponent {
   @Input() product = signal<Product | undefined>(undefined);
   @Output() updateProduct = new EventEmitter<Product>();
+  @Output() NewProduct = new EventEmitter<Product>();
   productForm!: FormGroup;
   //   fb = inject(FormBuilder);
   constructor(private fb: FormBuilder) {
@@ -101,11 +102,11 @@ export class ProductFormComponent {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: ` ${updatedProduct.name} is updated successfully im in formpage`,
+        title: ` ${updatedProduct.name} is updated successfully`,
         showConfirmButton: false,
         timer: 2700,
       });
-      this.updateProduct.emit(updatedProduct); // emit the updated product
+      this.updateProduct.emit(updatedProduct);
     }
   }
 }

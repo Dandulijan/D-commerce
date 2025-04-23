@@ -1,7 +1,8 @@
 <div class="container mt-5">
-  <div class="flex justify-between mb-4 pe-45">
+  <div class="flex justify-between mb-4 pe-80">
     <h1 class="text-2xl font-bold">PRODUCTS</h1>
     <button
+      (click)="addProductMode = true"
       class="px-15 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-lg shadow-sm transition"
     >
       <svg
@@ -27,6 +28,9 @@
         <th class="px-4 py-2 text-left">Name</th>
         <th class="px-4 py-2 text-left">Description</th>
         <th class="px-4 py-2 text-left">Price</th>
+        <th class="px-4 py-2 text-left">Category</th>
+        <th class="px-4 py-2 text-left">Rating</th>
+        <th class="px-4 py-2 text-left">Stock</th>
         <th class="px-4 py-2 text-left">Status</th>
         <th class="px-4 py-2 text-left">Actions</th>
       </tr>
@@ -47,6 +51,9 @@
         </td>
         <td class="px-4 py-2">{{ product.description }}</td>
         <td class="px-4 py-2">{{ product.price | currency }}</td>
+        <td class="px-4 py-2">{{ product.category }}</td>
+        <td class="px-4 py-2">{{ product.rating }}</td>
+        <td class="px-4 py-2">{{ product.stock }}</td>
         <td class="px-4 py-2">
           <span
             [ngClass]="{
@@ -130,14 +137,26 @@
   </table>
   @if(editMode) {
   <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
+    <div class="rounded-lg shadow-lg w-full max-w-2xl p-6 relative">
       <button
         (click)="this.editMode = false"
-        class="absolute top-2 right-2 text-stone-500 hover:text-stone-800"
+        class="absolute top-20 right-20 text-stone-500 hover:text-stone-800"
       >
-        X
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
       </button>
-
       <app-product-form
         *ngIf="editMode"
         [product]="selectedProduct"
@@ -145,14 +164,11 @@
       ></app-product-form>
     </div>
   </div>
-  }
-  <!-- 
+  } @if(addProductMode) {
   <app-product-form
-    *ngIf="editMode"
+    *ngIf="addProductMode"
     [product]="selectedProduct"
-    (updateProduct)="handleFormSubmit($event)"
-    (closeForm)="this.editMode = false"
-  >
-    ></app-product-form
-  > -->
+    (NewProduct)="handleFormSubmit($event)"
+  ></app-product-form>
+  }
 </div>

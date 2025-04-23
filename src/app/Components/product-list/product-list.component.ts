@@ -21,12 +21,11 @@ import Swal from 'sweetalert2';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  // products = PRODUCTS;
-  // products$ = computed(() => this.productService.products$);
   productService = inject(ProductService);
   products$ = this.productService.products$;
   selectedProduct = signal<Product | undefined>(undefined);
   editMode = false;
+  addProductMode = false;
   setSelectedProduct(product: Product) {
     this.selectedProduct.set(product);
     this.handleFormSubmit(product);
@@ -46,6 +45,10 @@ export class ProductListComponent {
     console.log('Form submitted with data:', updated);
     this.productService.updateProduct(updated);
     this.cancelEdit;
+  }
+  addProduct(Newp: Product) {
+    this.productService.addProduct(Newp);
+    this.addProductMode = false;
   }
   // Applied SweetAlert2 for edit
   // editProductPopup(product: Product) {
